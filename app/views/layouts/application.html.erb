@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kontakty</title>
+  <%= csrf_meta_tag %>
+  <%= render 'layouts/stylesheets' %>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div id="header" class="span-24 last">
+        <h1>Konktakty</h1>
+      </div> 
+
+      <hr />
+
+      <div id="subheader" class="span-24 last">
+        <h3>Serwis do zbierania konktaktów</h3>
+      </div>
+    </header>
+
+    <hr />
+
+    <div id="main" class="span-17 colborder">
+      <%= yield %>
+    </div>
+
+    <div id="sidebar" class="span-6 last">
+      <div id="recent">
+        Najnowsze kontakty
+      </div>
+
+      <div id="random">
+        Losowe kontakty
+      </div>
+    </div>
+  </div>
+</body>
+</html>
