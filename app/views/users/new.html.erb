@@ -1,2 +1,10 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>Zapisz się</h2>
+
+<%= simple_form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <%= f.input :name, :label => 'Imię' %>
+  <%= f.input :email, :label => 'Email' %>
+  <%= f.input :password  %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit, :value => "Wyślij" %>
+<% end -%>

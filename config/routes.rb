@@ -1,4 +1,6 @@
 Kontakty::Application.routes.draw do
+  resources :users
+
   get "users/new"
 
   get "pages/Home"
@@ -8,6 +10,7 @@ Kontakty::Application.routes.draw do
   get "pages/Contact"
 
   match '/' => 'pages#Home'
+  match '/signup' => 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

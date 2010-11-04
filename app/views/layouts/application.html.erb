@@ -23,22 +23,23 @@
   <div class="container">
 
     <header>
-      <div id="header" class="span-24 last">
+      <div id="header">
         <h1>Konktakty</h1>
       </div> 
 
-      <hr />
-
-      <div id="subheader" class="span-24 last">
-        <h3>Serwis do zbierania konktaktów</h3>
+      <div id="profile">
+        <%= link_to "Zaloguj się przez zewnętrzny serwis"  %> | 
+        <%= link_to "Zaloguj się"  %> 
       </div>
+
+        <h3 id="page_desc">Serwis do zbierania konktaktów</h3>
     </header>
 
     <hr />
 
-    <div id="main" class="span-17 colborder">
+    <div id="main" class="span-11 colborder">
       <%= yield %>
-    </div>
+    </div> <!-- main -->
 
     <div id="sidebar" class="span-6 last">
       <div id="recent">
@@ -48,7 +49,19 @@
       <div id="random">
         Losowe kontakty
       </div>
-    </div>
-  </div>
+    </div> <!-- sidebar -->
+
+    <footer class="span-18 last">
+      <hr />
+      <div id="footer_links">
+        <%= link_to "Home" %> 
+        <%= link_to "About" %>
+        <%= link_to "Contact" %>
+      </div>
+    </footer>
+
+    <%= debug(params) if Rails.env.development?  %>
+  </div> <!-- container -->
+
 </body>
 </html>
