@@ -1,4 +1,6 @@
 Kontakty::Application.routes.draw do
+  get "users/new"
+
   get "pages/Home"
 
   get "pages/About"
