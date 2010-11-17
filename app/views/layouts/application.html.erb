@@ -22,22 +22,14 @@
 <body>
   <div class="container">
 
-    <header>
-      <div id="header">
-        <h1>Konktakty</h1>
-      </div> 
-
-      <div id="profile">
-        <%= link_to "Zaloguj się przez zewnętrzny serwis"  %> | 
-        <%= link_to "Zaloguj się"  %> 
-      </div>
-
-        <h3 id="page_desc">Serwis do zbierania konktaktów</h3>
-    </header>
-
+    <%= render 'layouts/header' %>
     <hr />
 
+
     <div id="main" class="span-11 colborder">
+      <% flash.each do |key, value| -%>
+        <%= content_tag(:div, value, :class => "flash #{key}") %>
+      <% end -%>
       <%= yield %>
     </div> <!-- main -->
 
