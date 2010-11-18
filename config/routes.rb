@@ -1,9 +1,10 @@
 Kontakty::Application.routes.draw do
   get "sessions/new"
   resources :users
+  resources :contacts
   resources :sessions, :only => [:new, :create, :destroy]
 
-  match '/contact',   :to => 'pages#contact'
+  match '/contactus',   :to => 'pages#contact'
   match '/about',     :to => 'pages#about'
   match '/help',      :to => 'pages#help'
   match '/signup',    :to => 'users#new'

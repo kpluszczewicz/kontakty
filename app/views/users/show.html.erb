@@ -1,4 +1,19 @@
-<h2>
-  <%= gravatar_image_tag @user.email %>
-  Strona użytkownika <%= @user.name %>
-</h2>
+
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h2>
+        <%= gravatar_image_tag @user.email %>
+        Strona użytkownika <%= @user.name %>
+      </h2>
+
+      <%= link_to "Dodaj nowy kontakt", new_contact_path %>
+      <% unless @user.contacts.empty? -%>
+        <table class="contacts" summary="User contacts">
+          <%= render @contacts %>
+        </table>
+        <%= will_paginate @contacts %>
+      <% end -%>
+    </td>
+  </tr>
+</table>
