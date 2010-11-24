@@ -1,6 +1,10 @@
 <tr>
   <td class="contact">
     <span><%= link_to "#{contact.name} #{contact.surname}", contact %></span>
-    <%= link_to "delete", contact, :method => "delete", :confirm => "Are you sure?", :title => "Delete #{contact.name}"   %>
-  </td>
+    <% if current_user?(contact.user) -%>
+      <%= link_to "delete", contact,  :method => :delete,
+                                      :confirm => "Are you sure?", 
+                                      :title => "Delete #{contact.name}"   %>
+    <% end -%>
+    </td>
 </tr>

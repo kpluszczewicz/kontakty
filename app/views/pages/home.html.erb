@@ -1,0 +1,15 @@
+<% if signed_in? -%>
+  <table>
+    <tr>
+      <td>
+        <h1> Dodaj nowy kontakt </h1>
+        <%= render :partial => 'shared/feed', :collection => @feed_items %>
+      </td>
+    </tr>
+  </table>
+<% else -%>
+  <h1> Kontakty </h1>
+  <p>
+    To jest strona domowa
+  </p>
+<% end -%>

@@ -1,0 +1,19 @@
+<tr>
+  <td class="gravatar">
+    <%= link_to gravatar_for(feed_item.user), feed_item.user %> 
+  </td>
+  <td class="micropost">
+    <span class="user">
+      <%= link_to "#{feed_item.name} #{feed_item.surname}", feed_item %>
+    </span>
+    <span class="timestamp">
+      Dodano <%= time_ago_in_words(feed_item.created_at) %> temu 
+    </span>
+  </td>
+  <td>
+    <%= link_to I18n.t('nav.delete'), feed_item, :method => :delete,
+                                      :confirm => I18n.t('nav.confirm'),
+                                      :title => "Usuwanie" %>
+                                      <%= link_to "Edytuj", "#" %>
+  </td>
+</tr>

@@ -3,3 +3,27 @@
 
 en:
   hello: "Hello world"
+  general:
+    appname: "Contacts"
+  nav:
+    home: "Home"
+    users: "Users"
+    profile: "Profile"
+    settings: "Settings"
+    help: "Help"
+    signout: "Logout"
+    signin: "Log in"
+    about: "About"
+    contact: "Contact"
+    delete: "Delete"
+  v:
+    sessions:
+      signin: "Log in"
+      new:  "Are you new?"
+      signup: "Sign up!"
+  flash:
+    sessions:
+      failure: "Invalid email/password combination" 
+    user:
+      update:
+        success: "Profile has been succesfully updated"

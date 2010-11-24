@@ -1,19 +1,19 @@
-
-<table class="profile" summary="Profile information">
+<table class="front" summary="Profile information">
   <tr>
     <td class="main">
       <h2>
-        <%= gravatar_image_tag @user.email %>
+        <% gravatar_image_tag @user.email %>
         Strona użytkownika <%= @user.name %>
       </h2>
-
       <%= link_to "Dodaj nowy kontakt", new_contact_path %>
-      <% unless @user.contacts.empty? -%>
-        <table class="contacts" summary="User contacts">
-          <%= render @contacts %>
-        </table>
-        <%= will_paginate @contacts %>
-      <% end -%>
+      <%= render 'shared/feed' %>
+    </td>
+    <td class="sidebar round">
+      <div class="user_info">
+        <strong>Name</strong> <%= @user.name %><br />
+        <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+        <strong>Contacts</strong> <%= @user.contacts.count %>
+    </div>
     </td>
   </tr>
 </table>

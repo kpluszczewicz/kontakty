@@ -15,43 +15,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>Kontakty</title>
-  <%= csrf_meta_tag %>
   <%= render 'layouts/stylesheets' %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
 
 </head>
 <body>
   <div class="container">
 
     <%= render 'layouts/header' %>
-    <hr />
 
-
-    <div id="main" class="span-11 colborder">
+    <section class="round">
       <% flash.each do |key, value| -%>
         <%= content_tag(:div, value, :class => "flash #{key}") %>
       <% end -%>
       <%= yield %>
-    </div> <!-- main -->
+    </section>
 
-    <div id="sidebar" class="span-6 last">
-      <div id="recent">
-        Najnowsze kontakty
-      </div>
-
-      <div id="random">
-        Losowe kontakty
-      </div>
-    </div> <!-- sidebar -->
-
-    <footer class="span-18 last">
-      <hr />
-      <div id="footer_links">
-        <%= link_to "Home" %> 
-        <%= link_to "About" %>
-        <%= link_to "Contact", "/contactus" %>
-      </div>
-    </footer>
-
+    <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development?  %>
   </div> <!-- container -->
 

@@ -1,19 +1,28 @@
 <header>
-  <div id="header">
-    <h1>Konktakty</h1>
-  </div> 
-
-  <div id="profile">
+<%= link_to logo, root_path %>
+  <nav class="round">
+  <ul>
+    <li><%= link_to I18n.t('nav.home'), root_path %></li>
     <% if signed_in? -%>
-      <%= link_to "Profile", current_user %>
-      <%= link_to "Settings", edit_user_path(current_user) %>
-      <%= link_to "Sign out", signout_path, :method => :delete %>
+      <% if current_user.admin? -%>
+        <li><%= link_to I18n.t('nav.users'), users_path %></li>
+      <% end -%>
+      <li><%= link_to I18n.t('nav.profile'), current_user %></li>
+      <li><%= link_to I18n.t('nav.settings'), edit_user_path(current_user) %></li>
+    <% end %>
+    <li><%= link_to I18n.t('nav.help'), help_path %></li>
+    <% if signed_in? -%>
+      <li><%= link_to I18n.t('nav.signout'), signout_path, :method => :delete %></li>
     <% else -%>
-      <%= link_to "Zaloguj się przez zewnętrzny serwis"  %> | 
-      <%= link_to "Zaloguj się", signin_path  %> 
+      <li><%= link_to I18n.t('nav.signin'), signin_path  %></li> 
     <% end -%>
-  </div>
-
-    <h3 id="page_desc">Serwis do zbierania konktaktów</h3>
+  </ul>
+  </nav>
+  <nav class="round languages">
+  <ul>
+    <li><%= link_to image_tag("pl.png"), url_for(params.merge({ :locale => "pl" })) %></li>
+    <li><%= link_to image_tag("gb.png"), url_for(params.merge({ :locale => "en" })) %></li>
+  </ul>
+  </nav>
 </header>
 
