@@ -23,6 +23,13 @@ pl:
       new:  "Jesteś nowy?"
       signup: "Załóż konto!"
   flash:
+    actions:
+      create:
+        notice: "Nowy {{resource_name}} został pomyślnie utworzony."
+      update:
+        notice: "{{resource_name}} został pomyślnie zaktualizowany."
+      destroy:
+        notice: "{{resource_name}} został pomyślnie usunięty"
     sessions:
       failure: "Nieprawidłowa kombinacja loginu i hasła" 
     user:

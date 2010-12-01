@@ -51,7 +51,7 @@ module SessionsHelper
   end
 
   def contact_owner
-    @user = user_from_remember_token
+    @user = User.find(params[:user_id]) || user_from_remember_token
     @contact = Contact.find(params[:id])
     redirect_to(root_path) unless @contact.user == @user 
   end

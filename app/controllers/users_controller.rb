@@ -1,5 +1,5 @@
 class UsersController < InheritedResources::Base
-  before_filter :authenticate,  :only => [:index, :edit, :update, :destroy]
+  before_filter :authenticate,  :only => [:index, :edit, :update, :destroy, :show]
   before_filter :correct_user,  :only => [:edit, :update, :show] 
   before_filter :admin_user,    :only => [:index, :destroy]
 
@@ -8,7 +8,7 @@ class UsersController < InheritedResources::Base
   end
 
   def show
-    show! {user_contacts_path(@user)}
+    show! { user_contacts_path(@user) }
   end
 
   protected
