@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'gravatar_image_tag', '0.1.0'
 gem 'faker', '0.3.1'
 gem 'will_paginate', "3.0.pre2"
+gem 'inherited_resources', '1.1.2'
 
 # Use unicorn as the web server
 # gem 'unicorn'

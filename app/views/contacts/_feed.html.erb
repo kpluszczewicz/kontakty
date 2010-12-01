@@ -1,0 +1,6 @@
+<% unless @contacts.empty? -%>
+  <table class="micropotsts" summary="User contacts">
+    <%= render :partial => 'contacts/contact', :collection => @contacts %>
+  </table>
+  <%= will_paginate @feed_items %>
+<% end -%>

@@ -1,0 +1,10 @@
+<% simple_form_for([@user, @contact]) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= f.input :name %>
+  <%= f.input :surname %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :city %>
+  <%= f.input :street %>
+  <%= f.button :submit %>
+<% end -%>

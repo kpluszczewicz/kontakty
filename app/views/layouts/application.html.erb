@@ -15,8 +15,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>Kontakty</title>
-  <%= render 'layouts/stylesheets' %>
-  <%= javascript_include_tag :defaults %>
+  <% if true -%>
+    <%= render 'layouts/stylesheets_merged' %>
+    <%= javascript_include_merged(:base).html_safe %>
+  <% else -%>
+    <%= render 'layouts/stylesheets' %>
+    <%= javascript_include_tag :defaults %>
+  <% end -%>
   <%= csrf_meta_tag %>
 
 </head>

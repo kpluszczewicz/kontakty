@@ -211,31 +211,34 @@ ul.users {
   list-style: none;
 }
 
-h1.micropost {
+h1.contact {
   margin-bottom: 0.3em;
 }
 
-table.microposts {
+table.contacts {
   margin-top: 1em;
 }
 
-table.microposts tr {
+table.contacts tr {
   height: 70px;
 }
 
-table.microposts tr td.gravatar {
+table.contacts tr td.gravatar {
   border-top: 1px solid #ccc;
   vertical-align: top;
   width: 50px;
 }
 
-table.microposts tr td.micropost {
+table.contacts td {
   border-top: 1px solid #ccc;
+}
+
+table.contacts tr td.contact {
   vertical-align: top;
   padding-top: 10px;
 }
 
-table.microposts tr td.micropost span.timestamp {
+table.contacts tr td.contact span.timestamp {
   display: block;
   font-size: 85%;
   color: #666;
@@ -254,16 +257,16 @@ div.user_info span.user_name {
   /*position: absolute;*/
 }
 
-div.user_info span.microposts {
+div.user_info span.contacts {
   font-size: 80%;
 }
 
 
-form.new_micropost {
+form.new_contact {
   margin-bottom: 2em;
 }
 
-form.new_micropost textarea {
+form.new_contact textarea {
   height: 4em;
   margin-bottom: 0;
 }

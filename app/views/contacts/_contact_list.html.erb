@@ -1,0 +1,6 @@
+<% unless @contacts.empty? -%>
+  <table class="microposts">
+    <%= render :partial => 'contacts/contact', :collection => @contacts %>
+  </table>
+  <%= will_paginate @contacts %>
+<% end -%>

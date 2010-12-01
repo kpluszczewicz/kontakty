@@ -15,6 +15,7 @@ pl:
     about: "O nas"
     contact: "Kontakt"
     delete: "Usuń"
+    edit: "Edytuj"
     confirm: "Jesteś pewny?"
   v:
     sessions:

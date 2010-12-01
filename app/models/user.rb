@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  
   def feed
     Contact.where("user_id = ?", id)
   end

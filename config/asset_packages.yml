@@ -1,0 +1,18 @@
+--- 
+javascripts: 
+- base: 
+  - prototype
+  - rails
+  - effects
+  - controls
+  - application
+  - dragdrop
+stylesheets: 
+- base: 
+  - blueprint/screen
+  - custom
+- print:
+  - blueprint/print
+- ie:
+  - blueprint/ie
+

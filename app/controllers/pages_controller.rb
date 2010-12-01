@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   def home
     if signed_in?
-      @feed_items = current_user.feed.paginate(:page => params[:page])
-      redirect_to current_user 
+      redirect_to user_contacts_path(current_user)
     end
   end
 

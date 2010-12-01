@@ -5,8 +5,8 @@
         <% gravatar_image_tag @user.email %>
         Strona użytkownika <%= @user.name %>
       </h2>
-      <%= link_to "Dodaj nowy kontakt", new_contact_path %>
-      <%= render 'shared/feed' %>
+      <%#<%= link_to "Dodaj nowy kontakt", new_user_contact_path %>
+      <%= render 'contacts/contact_list' %>
     </td>
     <td class="sidebar round">
       <div class="user_info">

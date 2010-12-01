@@ -1,34 +1,21 @@
-class UsersController < ApplicationController
+class UsersController < InheritedResources::Base
   before_filter :authenticate,  :only => [:index, :edit, :update, :destroy]
   before_filter :correct_user,  :only => [:edit, :update, :show] 
-  before_filter :admin_user,    :only => :destroy
-  def new
-    @user = User.new
-  end
+  before_filter :admin_user,    :only => [:index, :destroy]
 
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      redirect_to @user
-    else
-      @user.password = @user.password_confirmation = ""
-      render 'new'
-    end
+    create! { @user.password = @user.password_confirmation = "" unless @user.save }
   end
 
   def show
-    @user = User.find(params[:id])
-    @feed_items = @user.contacts.paginate(:page => params[:page])
+    show! {user_contacts_path(@user)}
   end
 
-  def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      flash[:success] = I18n.t("flash.user.update.success")
-      redirect_to @user
-    else
-      render 'edit'
-    end
+  protected
+
+  def collection
+    @users ||= end_of_association_chain.paginate(:page => params[:page])
   end
 
+    
 end

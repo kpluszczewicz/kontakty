@@ -1,17 +1,24 @@
 Kontakty::Application.routes.draw do
   scope ':locale' do
-  resources :users
-  resources :contacts
-  resources :sessions, :only => [:new, :create, :destroy]
+
+    get 'users/:id' => redirect { |p, req| "#{req.path[0..2]}/users/#{p[:id]}/contacts"}
+
+    resources :users do
+      resources :contacts
+    end
+    resources :sessions, :only => [:new, :create, :destroy]
+
+    match '/contactus',   :to => 'pages#contact'
+    match '/about',     :to => 'pages#about'
+    match '/help',      :to => 'pages#help'
+    match '/signup',    :to => 'users#new'
+    match '/signin',    :to => 'sessions#new'
+    match '/signout',   :to => 'sessions#destroy'
+
   end
 
-  match '/contactus',   :to => 'pages#contact'
-  match '/about',     :to => 'pages#about'
-  match '/help',      :to => 'pages#help'
-  match '/signup',    :to => 'users#new'
-  match '/signin',    :to => 'sessions#new'
-  match '/signout',   :to => 'sessions#destroy'
-  root :to => 'pages#home'
+  match '/(:locale)' => 'pages#home', :as => :root
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

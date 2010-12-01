@@ -1,10 +1,19 @@
 <tr>
+  <td class="gravatar">
+    <%= gravatar_for(contact) %> 
+  </td>
   <td class="contact">
-    <span><%= link_to "#{contact.name} #{contact.surname}", contact %></span>
-    <% if current_user?(contact.user) -%>
-      <%= link_to "delete", contact,  :method => :delete,
-                                      :confirm => "Are you sure?", 
-                                      :title => "Delete #{contact.name}"   %>
-    <% end -%>
-    </td>
+    <span class="user">
+      <%= link_to "#{contact.name} #{contact.surname}", [@user, contact] %>
+    </span>
+    <span class="timestamp">
+      Dodano <%= time_ago_in_words(contact.created_at) %> temu 
+    </span>
+  </td>
+  <td>
+    <%= link_to I18n.t('nav.delete'), [@user, contact], :method => :delete,
+                                      :confirm => I18n.t('nav.confirm'),
+                                      :title => "Usuwanie" %>
+    <%= link_to I18n.t('nav.edit'), edit_user_contact_path(@user, contact) %>
+  </td>
 </tr>
